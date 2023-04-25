@@ -1,12 +1,22 @@
 const User = require('../models/user');
  
  module.exports.profile = function(req, res){
-   //  res.end('<h1>User Profile</h1>');
-
-    return res.render('user', {
-      title: "title is User page path /users/profile"
-    })
- }
+    if(req.cookies.user_id){
+      User.findById(req.cookies.user_id)
+      .then((user)=>{
+        return res.render('user_profile',{
+          title: "User Profile",
+          user: user
+        })
+      })
+      .catch((err)=>{
+        return res.redirect('/users/sign-up');
+      })
+     
+    }else{
+      return res.redirect('/users/sign-in');
+    }
+}
 
  //render the sign up  page
  module.exports.signUp = (req,res)=>{
@@ -43,7 +53,7 @@ const User = require('../models/user');
   //   }else{
   //     return res.direct('back')
   //   }
-  //  });
+  //  });  old version code....
 
   User.findOne({email: req.body.email})
   .then((user)=>{
@@ -73,5 +83,33 @@ const User = require('../models/user');
 
  // sign in and create a session for the user
  module.exports.createSession = (req,res)=>{
-  //TODO later
+
+  //step to authentication
+  //find the user
+  User.findOne({email: req.body.email})
+  .then((user)=>{
+       if(user){
+          //handle password which dont match
+           if(user.password != req.body.password){
+            return res.redirect('back');
+           }
+           //handle session creation
+           res.cookie('user_id', user.id);
+           return res.redirect('/users/profile');
+        } else{
+           //handle user not found
+           return res.redirect('back');
+        }
+  })
+
+
+  .catch((err)=>{
+    console.log('Error in finding User sign in');
+    return;
+  })
+   
+  //handle user found
+
+  
+ 
  }
