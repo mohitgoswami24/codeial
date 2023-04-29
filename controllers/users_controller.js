@@ -32,7 +32,7 @@ const User = require('../models/user');
   else{
     try{
        const user = await User.findOne({email: req.body.email})
-        if(!user){
+       if(!user){
             await User.create(req.body);
             return res.redirect('/users/sign-in');
         }
@@ -52,6 +52,5 @@ const User = require('../models/user');
 
  // sign in and create a session for the user
  module.exports.createSession = function(req,res){
-  console.log('session creating .......')
    return res.redirect('/');
  }
