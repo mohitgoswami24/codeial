@@ -1,3 +1,26 @@
 <header>
-    Page Header
+    <script src="https://kit.fontawesome.com/ede9b43825.js" crossorigin="anonymous"></script>
+    <div class="container">
+        <div class="head">
+            <h1 id="text-heading">Codeial</h1>
+        </div>
+        <div class="options">
+                <% if(locals.user) { %>
+                    <a href="/users/profile" >
+                        <!-- <%= user.name %> -->
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                    <a href="/users/sign-out" >
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </a>
+                <% } else { %>
+                    <a href="/users/sign-in" >
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </a>
+                    <a href="/users/sign-up" >
+                        <i class="fa-solid fa-user-plus"></i>
+                    </a>
+                <% } %>
+        </div>
+     </div>  
 </header>
