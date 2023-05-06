@@ -68,6 +68,7 @@ const User = require('../models/user');
 
  // sign in and create a session for the user
  module.exports.createSession = function(req,res){
+  req.flash('success', 'Logged in Successfully');
    return res.redirect('/');
  }
 
@@ -77,7 +78,9 @@ const User = require('../models/user');
     if(err){
       return next(err);
     }
+    req.flash('success', 'user logged out!');
+    return res.redirect('/')
   });
-
-  return res.redirect('/')
+ 
+  
  }
