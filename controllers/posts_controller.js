@@ -35,12 +35,22 @@ module.exports.destroy = async function(req, res){
     
     try {
 
-        const post = await Post.findById(req.params.id);
+        let post = await Post.findById(req.params.id);
 
-        if (String(post.user) == req.user.id) {
+        if (post.user == req.user.id) {
 
             await Post.findByIdAndDelete(req.params.id);
             await Comment.deleteMany({ post: req.params.id });
+
+            if(req.xhr){
+                return res.status(200).json({
+                    data:{
+                        post_id: req.params.id
+                    },
+                    message: "post deleted"
+                })
+            }
+
             req.flash('success','Post and associated comments deleted!')
             return res.redirect('back');
         } else {
@@ -48,8 +58,8 @@ module.exports.destroy = async function(req, res){
             return res.redirect('back');
         }
     } catch (error) {
-        
-        req.flash('error', err);
+        console.log(error);
+        req.flash('error',error)
         return res.redirect('back');
     }
 }
