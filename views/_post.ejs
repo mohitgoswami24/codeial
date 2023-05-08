@@ -1,37 +1,36 @@
-<% for(post of posts){%>
-    <li>
-            <p>
-                    <% if(locals.user && locals.user.id == post.user.id) { %>
-                    <small>
-                            <a href="/posts/destroy/<%= post.id%>"><i class="fa-solid fa-trash"></i></a>
-                    </small>
-                    <% } %>
-                    <%= post.content %>
-            <br>
-            <small>
-                    <%= post.user.name %>
-            </small>
-            </p>
-            <div class="post-comments">
-                    <% if(locals.user) {%>
-                            <form action="/comments/create" id="new-comment-form" method="post">
-                               <input type="text" name="content" placeholder="Type Here to add comments..">
-                               <input type="hidden" name="post" value="<%= post._id%>">
-                               <input type="submit" value="Add comment">
-                            </form>   
-                    <%}%>
+<li id="post-<%= post.id %>">
+        <p>
+                <% if(locals.user && locals.user.id == post.user.id) { %>
+                <small>
+                        <a class="delete-post-button" href="/posts/destroy/<%= post.id%>"><i class="fa-solid fa-trash"></i></a>
+                </small>
+                <% } %>
+                <%= post.content %>
+        <br>
+        <small>
+                <%= post.user.name %>
+        </small>
+        </p>
+        <div class="post-comments">
+                <% if(locals.user) {%>
+                        <form action="/comments/create" id="new-comment-form" method="post">
+                           <input type="text" name="content" placeholder="Type Here to add comments..">
+                           <input type="hidden" name="post" value="<%= post._id%>">
+                           <input type="submit" value="Add comment">
+                        </form>   
+                <%}%>
 
-                    <div class="post-comments-list">
-                            <ul id="post-comments-<%= post._id %>">
-                                    <%for (comment of post.comments) {%>
-                                      
-                                        <%- include('_comment') -%>
-                                           
-                                    <%}%>
-                            </ul>
-                    </div>
-            </div>
-            
-    </li>
-<%}  %>
+                <div class="post-comments-list">
+                        <ul id="post-comments-<%= post._id %>">
+                                <%for (comment of post.comments) {%>
+                                  
+                                    <%- include('_comment') -%>
+                                       
+                                <%}%>
+                        </ul>
+                </div>
+        </div>
+        
+</li>
+
 
