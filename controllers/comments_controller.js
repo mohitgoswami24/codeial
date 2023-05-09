@@ -14,6 +14,16 @@ module.exports.create = async function(req,res){
             post.comments.push(comment);
             post.save();
 
+            if(req.xhr){
+                return res.status(200).json({
+                    data: {
+                       comment: comment
+                    },
+                    message: "commented successfully!"
+                })
+            }
+            
+            // req.flash('success','commented Successfully!')
             res.redirect('/');
         }catch(error){
             console.log(error);
@@ -33,15 +43,27 @@ module.exports.destroy = async function(req,res){
             await Comment.findByIdAndDelete(req.params.id);
             await Post.findByIdAndUpdate(postID,{$pull:{comments:req.params.id}});
 
-    
+            if(req.xhr){
+                return res.status(200).json({
+                    data: {
+                        comment_id : req.params.id
+                    }, 
+                    message: "Comment Deleted!"
+                })
+            }
+
+            // req.flash('success',' comments deleted!')
+
             return res.redirect('back');
             }else{
-               
+                req.flash('error','You are not authorized to delete this comment!')
+
                 return res.redirect('back');
         }
     }catch(err){
         console.log(err);
-       
+        req.flash('error',error)
+
         return res.redirect('back');
     }
    
