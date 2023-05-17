@@ -12,13 +12,13 @@ const User = require('../models/user');
 
 
 passport.use(new JWTStrategy(opts, async function(jwtPayload,done){
-    console.log('1')
+   
     try{
         const user = await User.findById(jwtPayload._id);
-        console.log('2')
+      
 
         if(user){
-            console.log('3')
+         
             return done(null,user);
         }else{
             return done(null,false);

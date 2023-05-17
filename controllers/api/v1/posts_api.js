@@ -20,10 +20,12 @@ module.exports.index = async function(req, res){
 module.exports.destroy = async function(req,res){
     try{
 
-        const post = await Post.findById(req.params.id);
+        let post = await Post.findById(req.params.id);
 
-        if(String(post.user) == req.user._id){
-            post.deleteOne();
+        if (post.user == req.user.id) {
+
+            await Post.findByIdAndDelete(req.params.id);
+            await Comment.deleteMany({ post: req.params.id });
 
             await  Comment.deleteMany({post:req.params.id})
 
