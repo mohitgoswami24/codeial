@@ -8,17 +8,17 @@
                 <% if(locals.user) { %>
                     <a href="/users/profile" >
                         <!-- <%= user.name %> -->
-                        <i class="fa-solid fa-user"></i>
+                        UserProfile</i>
                     </a>
                     <a href="/users/sign-out" >
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        SignOut
                     </a>
                 <% } else { %>
                     <a href="/users/sign-in" >
-                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        signIn
                     </a>
                     <a href="/users/sign-up" >
-                        <i class="fa-solid fa-user-plus"></i>
+                        SignUp
                     </a>
                 <% } %>
         </div>

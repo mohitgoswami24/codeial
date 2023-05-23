@@ -1,15 +1,138 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 #home-container {
+  padding: 35px 10%;
+}
+
+#home-container .row {
   display: flex;
+  justify-content: space-between;
 }
 
-#home-container #feed-posts {
-  width: 70%;
-  padding: 10px;
+#home-container .row .column1 {
+  background: #d0cccc;
+  flex-basis: 60%;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-#home-container #users-friends {
-  width: 30%;
-  padding: 10px;
-  border-left: 1px solid lightgrey;
-  height: 100%;
+#home-container .row .column1 #feed-posts {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#home-container .row .column1 #feed-posts h4 {
+  margin-left: 17rem;
+  font-size: 30px;
+}
+
+#home-container .row .column1 #feed-posts #new-post-form {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+}
+
+#home-container .row .column1 #feed-posts #new-post-form input {
+  margin-left: 30rem;
+  color: #252323;
+  height: 30px;
+  width: 90px;
+  background: white;
+  border-radius: 10px;
+  margin-top: 4px;
+  font-size: 20px;
+  transition: background 0.5s;
+}
+
+#home-container .row .column1 #feed-posts #new-post-form input:hover {
+  color: white;
+  background: #252323;
+}
+
+#home-container .row .column1 #feed-posts #new-post-form textarea {
+  height: 100px;
+  width: 600px;
+  margin-left: 10px;
+  border: 2px solid #252323;
+}
+
+#home-container .row .column1 #post-list-container ul {
+  list-style: none;
+}
+
+#home-container .row .column1 #post-list-container .post-comments-list {
+  margin-left: 60px;
+}
+
+#home-container .row .column1 #post-list-container .post-comments #new-comment-form .comment-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#home-container .row .column1 #post-list-container .post-comments #new-comment-form .comment-container #comment-btn {
+  height: 30px;
+  width: 90px;
+  border-radius: 4px;
+  margin-top: 3px;
+  color: #252323;
+  background: white;
+  background: #252323;
+  color: white;
+  margin-left: 30rem;
+  transition: background 0.5s;
+}
+
+#home-container .row .column1 #post-list-container .post-comments #new-comment-form .comment-container #comment-btn:hover {
+  background: white;
+  color: #252323;
+}
+
+#home-container .row .column1 #post-list-container .post-comments #new-comment-form #comment1 {
+  border-radius: 10px;
+  height: 40px;
+  width: 600px;
+  margin-left: 10px;
+}
+
+#home-container .row .column1 #post-list-container ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#home-container .row .column1 #post-list-container ul li .delete-post-button {
+  margin-left: 60px;
+}
+
+#home-container .row .column2 {
+  flex-basis: 30%;
+  background: #d0cccc;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#home-container .row .column2 .user-friends h4 {
+  margin-left: 7rem;
+  font-size: 30px;
+}
+
+#home-container .row .column2 .user-friends a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #252323;
+  text-align: center;
+  margin-left: 8rem;
+  line-height: 40px;
+  margin-top: 60px;
 }

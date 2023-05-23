@@ -1,6 +1,13 @@
 <link rel="stylesheet" href="/css/home.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/ede9b43825.js" crossorigin="anonymous"></script>
 <div id="home-container">
+<div class="row">
+        <div class="column1">
         <section id="feed-posts">
+                <div class="overflow">
                 <h4>Posts</h4>
                 <% if (locals.user) {%>
                 <form action="/posts/create" id="new-post-form" method="POST">
@@ -17,8 +24,10 @@
                                 <%}  %>
                          </ul>     
                 </div>
+                </div>
         </section>
-        
+        </div>
+        <div class="column2">
         <section class="user-friends">
                 <h4>Friends</h4>
                 <% for(u of all_users) {%>
@@ -27,6 +36,8 @@
                         </p>
                 <%}%>
                 </section> 
+        </div>
+     </div>           
 </div>
 <script src="/js/home_posts.js"></script>
 <script src="/js/home_comments.js"></script>
