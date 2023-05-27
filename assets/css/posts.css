@@ -1,0 +1,30 @@
+.post-comments li .name {
+  background: rgba(146, 146, 233, 0.37);
+  font-weight: 900;
+  font-size: 15px;
+  margin-left: 480px;
+  padding: 5px 5px;
+  border-radius: 3px;
+}
+
+.com {
+  background-color: rgba(49, 48, 48, 0.387);
+  font-size: 25px;
+  width: 85%;
+  border-radius: 10px;
+}
+
+.post-cont {
+  background: rgba(80, 97, 127, 0.511);
+  margin-top: 15px;
+  height: 95%;
+  width: 95%;
+  margin-left: 8px;
+  border-radius: 10px;
+}
+
+.name-para {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+}

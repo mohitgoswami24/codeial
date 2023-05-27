@@ -1,4 +1,4 @@
- *{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,6 +13,8 @@ body{
     height: 100vh;
 }
 
+
+
 h1{
     color: #fff;
     margin: auto;
@@ -22,8 +24,9 @@ h1{
     position: absolute;
     top: 30%;
     left: 35%;
-    height: 420px;
+    height: 500px;
     width: 380px;
+  
     background:rgba(146, 146, 233, 0.781) ;
     border-radius: 8px;
     overflow: hidden;
@@ -37,6 +40,7 @@ h1{
  .box form{
     position:absolute;
     inset: 4px;
+
     background:rgba(146, 146, 233, 0.781) ;
     padding: 50px 40px;
     border-radius: 8px;
@@ -87,7 +91,10 @@ h1{
     letter-spacing: 0.5em;
     transition: 0.5s;
     z-index: 10;
+    margin-top: 10px;
 }
+
+ 
 
 .box form .inputbox span
 {
@@ -100,7 +107,6 @@ h1{
     letter-spacing: 0.05em;
     transition: 0.5s;
 }
-
 
 
 .links p a i{

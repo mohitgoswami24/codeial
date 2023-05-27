@@ -1,6 +1,13 @@
  
  body{
    font-family: 'Poppins', sans-serif;
+   background-color: #6a93cb;
+background-image: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+height: 100vh;
+
  }
  
  #home-container{
@@ -14,7 +21,7 @@
       justify-content: space-between;
 
         .column1{
-         background: rgb(208, 204, 204);
+         background: rgba(65, 64, 64, 0.292);
          flex-basis: 60%;
          box-shadow: 0 15px 30px rgba(0,0,0,0.1);
          border-radius: 20px;
@@ -130,7 +137,7 @@
                  #comment1 {
                      border-radius: 10px;
                      height: 40px;
-                     width: 600px;
+                     width: 550px;
                      margin-left: 10px;
                   }
                }
@@ -177,7 +184,7 @@
                }
             }
          flex-basis: 30%;
-         background: rgb(208, 204, 204);
+         background:rgba(146, 146, 233, 0.37) ;
          
          box-shadow: 0 15px 30px rgba(0,0,0,0.1);
          border-radius: 20px;
